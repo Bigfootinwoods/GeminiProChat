@@ -7,6 +7,8 @@ WORKDIR /usr/src
 # Copy all necessary files to the working directory
 COPY . .
 
+RUN npm i @vercel/speed-insights 
+
 # Install global dependencies
 RUN npm install -g pnpm
 
