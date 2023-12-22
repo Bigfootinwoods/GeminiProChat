@@ -2,8 +2,6 @@ import { defineConfig } from 'astro/config'
 import unocss from 'unocss/astro'
 import solidJs from '@astrojs/solid-js'
 
-import vercel from '@astrojs/vercel/serverless';
-
 import node from '@astrojs/node'
 import AstroPWA from '@vite-pwa/astro'
 import vercel from '@astrojs/vercel/edge'
@@ -61,11 +59,6 @@ export default defineConfig({
     }),
   ],
   output: 'server',
-  adapter: vercel({
-    webAnalytics: {
-      enabled: true,
-    },
-  }),
   adapter: envAdapter(),
   vite: {
     plugins: [
