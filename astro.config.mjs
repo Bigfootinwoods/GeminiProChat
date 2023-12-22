@@ -67,7 +67,7 @@ export default defineConfig({
       },
     }),
   ],
-  output: 'server',
+  
   adapter: envAdapter(),
   vite: {
     plugins: [
