@@ -2,6 +2,8 @@ import { defineConfig } from 'astro/config'
 import unocss from 'unocss/astro'
 import solidJs from '@astrojs/solid-js'
 
+import vercel from '@astrojs/vercel/serverless';
+
 import node from '@astrojs/node'
 import AstroPWA from '@vite-pwa/astro'
 import vercel from '@astrojs/vercel/edge'
@@ -18,6 +20,8 @@ const envAdapter = () => {
 
 // https://astro.build/config
 export default defineConfig({
+
+ 
   integrations: [
     unocss(),
     solidJs(),
@@ -59,7 +63,12 @@ export default defineConfig({
     }),
   ],
   output: 'server',
-  adapter: envAdapter(),
+   adapter: vercel({
+    webAnalytics: {
+      enabled: true,
+    },
+  }),
+  
   vite: {
     plugins: [
       process.env.OUTPUT === 'vercel' && disableBlocks(),
