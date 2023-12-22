@@ -20,8 +20,6 @@ const envAdapter = () => {
 
 // https://astro.build/config
 export default defineConfig({
-
- 
   integrations: [
     unocss(),
     solidJs(),
@@ -68,7 +66,7 @@ export default defineConfig({
       enabled: true,
     },
   }),
-  
+  adapter: envAdapter(),
   vite: {
     plugins: [
       process.env.OUTPUT === 'vercel' && disableBlocks(),
