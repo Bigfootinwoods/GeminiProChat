@@ -1,4 +1,6 @@
 import { defineConfig } from 'astro/config'
+import vercel from '@astrojs/vercel/serverless';
+
 import unocss from 'unocss/astro'
 import solidJs from '@astrojs/solid-js'
 
@@ -18,6 +20,16 @@ const envAdapter = () => {
 
 // https://astro.build/config
 export default defineConfig({
+  output: 'server',
+  adapter: vercel({
+    webAnalytics: {
+      enabled: true,
+    },
+    speedInsights: {
+      enabled: true,
+    },
+  }),
+  
   integrations: [
     unocss(),
     solidJs(),
