@@ -1,18 +1,6 @@
----
-import { defineConfig } from 'astro/config';
-
-import vercel from '@astrojs/vercel/serverless';
- 
+--- 
 import { pwaInfo } from 'virtual:pwa-info'
 
-export default defineConfig({
-  output: 'server',
-  adapter: vercel({
-    webAnalytics: {
-      enabled: true,
-    },
-  }),
-});
 
 export interface Props {
   title: string;
